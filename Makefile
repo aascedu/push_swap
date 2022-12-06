@@ -6,11 +6,13 @@
 #    By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 12:57:46 by aascedu           #+#    #+#              #
-#    Updated: 2022/12/06 16:18:23 by aascedu          ###   ########lyon.fr    #
+#    Updated: 2022/12/06 16:20:21 by aascedu          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+LIBFT_DIR = ./libft/
 
 HEADER = ./include/push_swap.h
 
@@ -41,7 +43,7 @@ clean :
 	$(RM) $(OBJS_DIR)
 	make clean -C $(LIBFT_DIR)
 
-fclean :
+fclean : clean
 	$(RM) $(NAME)
 	make fclean -C $(LIBFT_DIR)
 

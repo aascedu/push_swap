@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+         #
+#    By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 12:57:46 by aascedu           #+#    #+#              #
-#    Updated: 2022/12/11 16:10:51 by arthurasced      ###   ########lyon.fr    #
+#    Updated: 2022/12/12 11:41:42 by aascedu          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ OBJS = $(SRCS:.c=.o)
 OBJS_FILES = $(addprefix $(OBJS_DIR), $(OBJS))
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I./include -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -I./include
+#-fsanitize=address -g3
 RM = rm -rf
 
 all : $(OBJS_DIR) lib
@@ -42,8 +43,8 @@ $(OBJS_DIR) :
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c ./include/$(HEADER)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-$(NAME) : $(OBJS_FILES)
-	$(CC) $(CFLAGS) ./libft/libft.a $(OBJS_FILES) -o $(NAME)
+$(NAME) : $(OBJS_FILES) $(LIBFT)
+	$(CC) $(CFLAGS) $(LIBFT) $(OBJS_FILES) -o $(NAME)
 
 clean :
 	$(RM) $(OBJS_DIR)

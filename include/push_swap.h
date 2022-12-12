@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:07 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/11 15:53:46 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:30:42 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 void	print_error(void);
 
 int	valid_args(int argc, char **argv);
-int	*entry_parsing(int argc, char **argv);
+int	*entry_parsing(int *array_len, int argc, char **argv);
 
 #endif

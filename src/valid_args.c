@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   valid_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 14:25:33 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/11 15:53:20 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:40:39 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_arg(char *str)
+static int	check_arg(char *str)
 {
 	int	index;
 

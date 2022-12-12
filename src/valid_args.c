@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   valid_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 12:56:02 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/11 16:00:04 by arthurasced      ###   ########lyon.fr   */
+/*   Created: 2022/12/09 14:25:33 by arthurasced       #+#    #+#             */
+/*   Updated: 2022/12/11 15:53:20 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	check_arg(char *str)
 {
-	int	*number_array;
-	if (argc == 1)
-		return (0);
-	if (valid_args(argc, argv) == 0)
-		return (ft_printf("Error\n"));
-	number_array = entry_parsing(argc, argv);
-	int	index = 0;
-	while (number_array[index])
+	int	index;
+
+	index = 0;
+	while (str && str[index])
 	{
-		ft_printf("number_array[%d]=%d\n", index, number_array[index]);
+		if (!ft_isdigit(str[index]) && str[index] != 32)
+			return (0);
 		index++;
 	}
-	return (0);
+	return (1);
+}
+
+int	valid_args(int argc, char **argv)
+{
+	int	index;
+
+	index = 1;
+	while (index < argc)
+	{
+		if (check_arg(argv[index]) == 0)
+			return (0);
+		index++;
+	}
+	return (1);
 }

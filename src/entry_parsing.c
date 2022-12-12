@@ -6,11 +6,24 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 15:40:58 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/12 11:30:10 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:54:56 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_all(char **text_array, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i <= len)
+	{
+		free(text_array[i]);
+		i++;
+	}
+	free(text_array);
+}
 
 static int	*one_string_entry(int *array_len, char **argv)
 {
@@ -32,6 +45,7 @@ static int	*one_string_entry(int *array_len, char **argv)
 		number_array[index] = ft_atoi(text_array[index]);
 		index++;
 	}
+	free_all(text_array, index);
 	return (number_array);
 }
 

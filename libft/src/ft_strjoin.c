@@ -3,16 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:04:37 by aascedu           #+#    #+#             */
-/*   Updated: 2022/11/11 15:08:41 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 13:44:48 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+// strjoin has been modified to join 2 strings with a space in between them
+// so that i can split them easily later on.
+
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*res;
 	int		i;
@@ -20,7 +23,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	res = malloc(sizeof(char) * ((int)ft_strlen(s1) + (int)ft_strlen(s2) + 1));
+	res = malloc(sizeof(char) * ((int)ft_strlen(s1) + (int)ft_strlen(s2) + 2));
 	if (!res)
 		return (NULL);
 	i = 0;
@@ -29,6 +32,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		res[i] = s1[i];
 		i++;
 	}
+	res[i++] = ' ';
 	j = 0;
 	while (j < (int)ft_strlen(s2))
 	{
@@ -36,5 +40,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		j++;
 	}
 	res[i + j] = '\0';
+	free(s1);
 	return (res);
 }

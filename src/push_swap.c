@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:56:02 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/12 11:44:04 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 15:08:41 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,13 @@ int	main(int argc, char **argv)
 	int	array_len;
 
 	array_len = 0;
-	if (argc == 1)
+	if (argc < 2)
 		return (0);
 	if (valid_args(argc, argv) == 0)
 		return (ft_printf("Error\n"));
-	number_array = entry_parsing(&array_len, argc, argv);
+	number_array = entry_parsing(&array_len, argv + 1);
 	if (check_dup(array_len, number_array))
-	{
-		free(number_array);
-		return (ft_printf("Error\n"));
-	}
-	int i = 0;
-	while (i < array_len)
-	{
-		ft_printf("%d\n", number_array[i]);
-		i++;
-	}
-	free(number_array);
-	return (0);
+		return (free(number_array), ft_printf("Error\n"));
+	create_list
+	return (free(number_array), 0);
 }

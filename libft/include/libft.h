@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:22:40 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/05 14:43:39 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 14:43:17 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_list
 char	*ft_itoa(int n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
-char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
@@ -89,6 +89,7 @@ int		ft_specifier(va_list ap, const char c);
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 512
 # endif
+
 char	*add_buffer(char *line, char *buff);
 char	*ft_strjoin_free(char *line, char *buff);
 char	*get_next_line(int fd);

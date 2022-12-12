@@ -6,13 +6,13 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 15:40:58 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/12 11:54:56 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 15:01:24 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_all(char **text_array, int len)
+static void	free_all(char **text_array, int len)
 {
 	int	i;
 
@@ -25,13 +25,13 @@ void	free_all(char **text_array, int len)
 	free(text_array);
 }
 
-static int	*one_string_entry(int *array_len, char **argv)
+static int	*split_in_array(char *str, int *array_len)
 {
 	char	**text_array;
 	int		*number_array;
 	int		index;
 
-	text_array = ft_split(argv[1], ' ');
+	text_array = ft_split(str, ' ');
 	index = 0;
 	while (text_array[index])
 		index++;
@@ -49,11 +49,20 @@ static int	*one_string_entry(int *array_len, char **argv)
 	return (number_array);
 }
 
-// static int
-
-int	*entry_parsing(int *array_len, int argc, char **argv)
+int	*entry_parsing(int *array_len, char **argv)
 {
-	if (argc == 2)
-		return (one_string_entry(array_len, argv));
-	return (0);
+	int		index;
+	int		*number_array;
+	char	*entry;
+
+	index = 0;
+	entry = ft_calloc(1, sizeof(char));
+	while (argv[index])
+	{
+		entry = ft_strjoin(entry, argv[index]);
+		index++;
+	}
+	number_array = split_in_array(entry, array_len);
+	free(entry);
+	return (number_array);
 }

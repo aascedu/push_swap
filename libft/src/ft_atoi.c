@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:07:49 by aascedu           #+#    #+#             */
-/*   Updated: 2022/11/18 10:28:33 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/13 15:58:19 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_whitespace(char c)
 {
@@ -19,11 +20,11 @@ static int	ft_whitespace(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int				i;
-	int				sign;
-	long long int	number;
+	int	i;
+	long int	sign;
+	long int	number;
 
 	i = 0;
 	while (ft_whitespace(str[i]) == 1)
@@ -38,10 +39,9 @@ int	ft_atoi(const char *str)
 	number = 0;
 	while (ft_isdigit(str[i]))
 	{
-		if (number != ((number * 10) + (str[i] - 48)) / 10)
-			return ((sign + 1) / -2);
 		number = number * 10 + (str[i] - 48);
 		i++;
 	}
-	return ((sign * number));
+	number = number * sign;
+	return (number);
 }

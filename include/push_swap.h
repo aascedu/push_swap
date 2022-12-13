@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:07 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/12 15:07:31 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/13 15:44:31 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,21 @@
 # define PUSH_SWAP_H
 
 # include "../libft/include/libft.h"
+# include <stdlib.h>
+# include <limits.h>
+
+//DELETE
+#include <stdio.h>
 
 typedef struct s_stack
 {
 	int				number;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
-int		valid_args(int argc, char **argv);
-int	*entry_parsing(int *array_len, char **argv);
+char	**args_to_array(char **argv);
+
+t_stack *args_to_nodes(char **argv);
+t_stack *create_node(void);
 
 #endif

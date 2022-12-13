@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 12:57:46 by aascedu           #+#    #+#              #
-#    Updated: 2022/12/12 13:58:30 by aascedu          ###   ########lyon.fr    #
+#    Updated: 2022/12/13 15:29:25 by arthurasced      ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT = ./libft/libft.a
 HEADER = push_swap.h
 
 SRCS_DIR = ./src/
-SRCS = push_swap.c valid_args.c entry_parsing.c
+SRCS = push_swap.c args_to_nodes.c args_to_array.c
 SRCS_FILES = $(addprefix $(SRCS_DIR), $(SRCS))
 
 OBJS_DIR = ./objects/
@@ -26,7 +26,7 @@ OBJS = $(SRCS:.c=.o)
 OBJS_FILES = $(addprefix $(OBJS_DIR), $(OBJS))
 
 CC = cc
-CFLAGS =  -I./include -Wall -Werror -Wextra #-fsanitize=address -g3
+CFLAGS =  -I./include -Wall -Werror -Wextra # -fsanitize=address -g3
 RM = rm -rf
 
 all : $(OBJS_DIR) lib

@@ -6,7 +6,7 @@
 /*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:57:16 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/13 18:04:24 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/13 19:21:49 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ t_stack	*args_to_nodes(char **argv)
 		temp = temp->next;
 		index++;
 	}
+	if (check_dups(text_array))
+		return (NULL); // ADD FREE_ALL FUNCTION.
 	free(text_array);
 	return (first);
 }

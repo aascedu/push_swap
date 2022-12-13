@@ -6,7 +6,7 @@
 #    By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 12:57:46 by aascedu           #+#    #+#              #
-#    Updated: 2022/12/13 15:29:25 by arthurasced      ###   ########lyon.fr    #
+#    Updated: 2022/12/13 19:34:50 by arthurasced      ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT = ./libft/libft.a
 HEADER = push_swap.h
 
 SRCS_DIR = ./src/
-SRCS = push_swap.c args_to_nodes.c args_to_array.c
+SRCS = push_swap.c args_to_nodes.c args_to_array.c check_dups.c 
 SRCS_FILES = $(addprefix $(SRCS_DIR), $(SRCS))
 
 OBJS_DIR = ./objects/

@@ -6,7 +6,7 @@
 /*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:07 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/13 15:44:31 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/13 19:34:25 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_stack
 }	t_stack;
 
 char	**args_to_array(char **argv);
+
+int	check_dups(char **array);
 
 t_stack *args_to_nodes(char **argv);
 t_stack *create_node(void);

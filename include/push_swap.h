@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:07 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/14 14:30:35 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 15:29:52 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include "../libft/include/libft.h"
 # include <stdlib.h>
 # include <limits.h>
-
-//DELETE
-#include <stdio.h>
 
 typedef struct s_stack
 {

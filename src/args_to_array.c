@@ -3,19 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   args_to_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:37:19 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/13 17:39:46 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 15:10:14 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	wrong_minus(char c0, char c1, char c2)
+static int	check_line(char *str)
 {
-		if ((ft_isdigit(c0) && c1 == '-') || (c1 == '-' && !ft_isdigit(c2)))
+	int	i;
+
+	i = 0;
+	while (str[i] && str)
+	{
+		if (ft_isdigit(str[i]) == 0 && str[i] != 32 && str[i] != '-')
 			return (1);
+		i++;
+	}
+	i = 0;
+	while (str[i] && str)
+	{
+		if (i == 0)
+		{
+			if (str[i] == '-' && !ft_isdigit(str[i + 1]))
+				return (1);
+		}
+		else if (str[i] == '-' && ft_isdigit(str[i - 1]))
+			return (1);
+		else if (str[i] == '-' && !ft_isdigit(str[i + 1]))
+			return (1);
+		i++;
+	}
 	return (0);
 }
 
@@ -31,15 +52,16 @@ char	**args_to_array(char **argv)
 	line[0] = '\0';
 	i = -1;
 	while (argv[++i])
-		line = ft_strjoin(line, argv[i]);
-	i = -1;
-	while (line[++i] && line)
 	{
-		if ((ft_isdigit(line[i]) == 0 && line[i] != 32 && line[i] != '-')
-			|| wrong_minus(line[i - 1], line[i], line[i + 1]))
+		line = ft_strjoin(line, argv[i]);
+		if (!line)
 			return (free(line), NULL);
 	}
+	if (check_line(line))
+		return (free(line), NULL);
 	array = ft_split(line, ' ');
+	if (!array)
+		return (free(line), ft_freeall(array), NULL);
 	free(line);
 	return (array);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_dups.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:16:51 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/13 19:34:07 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 09:22:16 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int	check_dups(char **array)
 	while (++i < len)
 		num_array[i] = ft_atoi(array[i]);
 	if (check_array(num_array, len))
-		return (1);
-	return (0);
+		return (free(num_array), 1);
+	return (free(num_array), 0);
 }

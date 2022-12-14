@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_to_nodes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:57:16 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/13 19:21:49 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 15:09:49 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_stack	*create_node(void)
 	t_stack	*new_node;
 
 	new_node = (t_stack *)malloc(sizeof(t_stack));
-	//if (!new_node)
-		// Free and delete whole doubly linked list.
 	new_node->next = 0;
 	new_node->number = 0;
 	return (new_node);
@@ -26,29 +24,28 @@ t_stack	*create_node(void)
 
 t_stack	*args_to_nodes(char **argv)
 {
-	int		index;
+	int		i;
 	t_stack	*first;
 	t_stack	*temp;
-	char	**text_array;
+	char	**array;
 
-	text_array = args_to_array(argv);
-	if (!text_array)
-		return (NULL);
+	array = args_to_array(argv);
 	first = create_node();
+	if (!first || !array)
+		return (free_lst(first), ft_freeall(array), NULL);
 	temp = first;
-	index = 0;
-	while (text_array[index])
+	i = -1;
+	while (array[++i])
 	{
-		if (ft_atoi(text_array[index]) > INT_MAX
-			|| ft_atoi(text_array[index]) < INT_MIN)
-			return (free(text_array), NULL);
-		temp->number = ft_atoi(text_array[index]);
+		if (ft_atoi(array[i]) > INT_MAX || ft_atoi(array[i]) < INT_MIN)
+			return (ft_freeall(array), free_lst(first), NULL);
+		temp->number = ft_atoi(array[i]);
 		temp->next = create_node();
+		if (!temp->next)
+			return (free_lst(first), ft_freeall(array), NULL);
 		temp = temp->next;
-		index++;
 	}
-	if (check_dups(text_array))
-		return (NULL); // ADD FREE_ALL FUNCTION.
-	free(text_array);
-	return (first);
+	if (check_dups(array))
+		return (free_lst(first), ft_freeall(array), NULL);
+	return (ft_freeall(array), first);
 }

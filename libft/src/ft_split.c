@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:32:35 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/12 11:52:22 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 15:09:18 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ static int	ft_countargs(const char *str, char c)
 	}
 	return (args);
 }
-
-static char	**ft_freeall(char **res, int args)
+#include <stdio.h>
+char	**ft_freeall(char **res)
 {
 	int	i;
 
 	i = 0;
-	while (i <= args)
+	if (!res)
+		return (NULL);
+	while (res[i])
 	{
 		free(res[i]);
 		i++;
@@ -50,25 +52,39 @@ static char	**ft_freeall(char **res, int args)
 	return (NULL);
 }
 
-static char	*ft_dupstr(const char *s, char c, char **res)
+// static char	*ft_dupstr(const char *s, char c, char **res)
+// {
+// 	int		i;
+// 	char	*copy;
+
+// 	i = 0;
+// 	while (s[i] && s[i] != c)
+// 		i++;
+// 	copy = malloc(sizeof(char) * (i + 1));
+// 	if (!copy)
+// 		return ((char *)ft_freeall(res, ft_countargs(s, c)));
+// 	i = 0;
+// 	while (s[i] && s[i] != c)
+// 	{
+// 		copy[i] = s[i];
+// 		i++;
+// 	}
+// 	copy[i] = '\0';
+// 	return (copy);
+// }
+
+int	word_len(const char *str, char c)
 {
-	int		i;
-	char	*copy;
+	int	i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	copy = malloc(sizeof(char) * (i + 1));
-	if (!copy)
-		return ((char *)ft_freeall(res, ft_countargs(s, c)));
-	i = 0;
-	while (s[i] && s[i] != c)
+	while (str[i])
 	{
-		copy[i] = s[i];
+		if (str[i] == c)
+			return (i);
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	return (i);
 }
 
 char	**ft_split(const char *s, char c)
@@ -79,22 +95,23 @@ char	**ft_split(const char *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	result = malloc(sizeof(char *) * (ft_countargs(s, c) + 1));
+	result = ft_calloc(ft_countargs(s, c) + 1, sizeof(char *));
 	if (!result)
 		return (NULL);
 	i = 0;
-	arg = 0;
+	arg = -1;
 	while (s[i])
 	{
-		if (s[i] != c)
-		{
-			result[arg++] = ft_dupstr(&s[i], c, result);
-			while (s[i] && s[i] != c)
-				i++;
-		}
-		if (s[i])
+		if (s[i] == c)
 			i++;
+		else
+		{
+			result[++arg] = malloc(sizeof(char) * (word_len(&s[i], c) + 1));
+			if (!result[arg])
+				return (ft_freeall(result));
+			ft_memcpy(result[arg], &s[i], word_len(&s[i], c));
+			i += word_len(&s[i], c);
+		}
 	}
-	result[arg] = NULL;
 	return (result);
 }

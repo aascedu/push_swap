@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:07 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/13 19:34:25 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 14:30:35 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ typedef struct s_stack
 {
 	int				number;
 	struct s_stack	*next;
-}	t_stack;
+}		t_stack;
 
 char	**args_to_array(char **argv);
 
-int	check_dups(char **array);
+int		check_dups(char **array);
 
-t_stack *args_to_nodes(char **argv);
-t_stack *create_node(void);
+t_stack	*args_to_nodes(char **argv);
+t_stack	*create_node(void);
+void	free_lst(t_stack *head);
 
 #endif

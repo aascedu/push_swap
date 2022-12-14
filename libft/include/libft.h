@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:22:40 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/13 16:00:05 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 15:09:01 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char		*ft_strrchr(const char *s, int c);
 char		*ft_substr(const char *s, unsigned int start, size_t len);
 char		*ft_strtrim(const char *s1, const char *set);
 char		**ft_split(const char *s, char c);
+char		**ft_freeall(char **res);
 
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);

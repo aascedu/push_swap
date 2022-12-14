@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:07:49 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/13 15:58:19 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 12:04:01 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_whitespace(char c)
 
 long int	ft_atoi(const char *str)
 {
-	int	i;
+	int			i;
 	long int	sign;
 	long int	number;
 

@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   free_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 14:14:17 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/14 11:36:57 by aascedu          ###   ########lyon.fr   */
+/*   Created: 2022/12/14 09:14:43 by aascedu           #+#    #+#             */
+/*   Updated: 2022/12/14 12:08:51 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "push_swap.h"
+
+void	free_lst(t_stack *head)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	else
-		return (0);
+	t_stack	*temp;
+	t_stack	*next;
+
+	temp = head;
+	while (temp)
+	{
+		next = temp->next;
+		free(temp);
+		temp = next;
+	}
+	head = NULL;
 }

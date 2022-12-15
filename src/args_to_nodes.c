@@ -6,46 +6,73 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:57:16 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/14 15:09:49 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/15 14:22:43 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*create_node(void)
+t_stack	*create_node(int content, t_stack *first)
 {
 	t_stack	*new_node;
 
 	new_node = (t_stack *)malloc(sizeof(t_stack));
-	new_node->next = 0;
-	new_node->number = 0;
+	if (!new_node)
+		return (free_lst(first), NULL);
+	new_node->number = content;
+	new_node->next = NULL;
 	return (new_node);
+}
+
+t_stack	*lstlast(t_stack *lst)
+{
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}
+
+t_stack	*lstfind(t_stack *lst, t_stack *stop)
+{
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != stop)
+		lst = lst->next;
+	return (lst);
+}
+
+void	lstadd_back(t_stack **lst, t_stack *new)
+{
+	t_stack	*temp;
+
+	if (lst == NULL)
+		return ;
+	temp = *lst;
+	if (!temp)
+	{
+		*lst = new;
+		return ;
+	}
+	temp = lstlast(temp);
+	temp->next = new;
 }
 
 t_stack	*args_to_nodes(char **argv)
 {
 	int		i;
 	t_stack	*first;
-	t_stack	*temp;
 	char	**array;
 
+	first = NULL;
 	array = args_to_array(argv);
-	first = create_node();
-	if (!first || !array)
-		return (free_lst(first), ft_freeall(array), NULL);
-	temp = first;
-	i = -1;
-	while (array[++i])
+	i = 0;
+	while (array[i])
 	{
 		if (ft_atoi(array[i]) > INT_MAX || ft_atoi(array[i]) < INT_MIN)
-			return (ft_freeall(array), free_lst(first), NULL);
-		temp->number = ft_atoi(array[i]);
-		temp->next = create_node();
-		if (!temp->next)
-			return (free_lst(first), ft_freeall(array), NULL);
-		temp = temp->next;
+			return (ft_freeall(array), free_lst(first), (void)ft_printf("Error\n"), NULL);
+		lstadd_back(&first, create_node(ft_atoi(array[i]), first));
+		i++;
 	}
-	if (check_dups(array))
-		return (free_lst(first), ft_freeall(array), NULL);
-	return (ft_freeall(array), first);
+	return (first);
 }

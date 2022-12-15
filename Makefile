@@ -6,7 +6,7 @@
 #    By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 12:57:46 by aascedu           #+#    #+#              #
-#    Updated: 2022/12/14 14:58:57 by aascedu          ###   ########lyon.fr    #
+#    Updated: 2022/12/15 12:34:52 by aascedu          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ HEADER = push_swap.h
 
 SRCS_DIR = ./src/
 SRCS = push_swap.c args_to_nodes.c args_to_array.c check_dups.c free_lst.c \
+		swap.c rotate.c rev_rotate.c \
 
 SRCS_FILES = $(addprefix $(SRCS_DIR), $(SRCS))
 

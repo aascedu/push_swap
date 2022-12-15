@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:51:00 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/14 15:29:37 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/15 14:23:12 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,8 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack	*head;
 
 	(void)argc;
 	a = args_to_nodes(argv + 1);
-	head = a;
-	if (!a)
-		return ((void)ft_printf("Error\n"), 1);
-	while (a->next)
-	{
-		printf("%d\n", a->number);
-		a = a->next;
-	}
-	a = head;
-	free_lst(a);
 	return (0);
 }

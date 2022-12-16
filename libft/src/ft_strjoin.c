@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:04:37 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/14 11:38:39 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 13:45:54 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 // strjoin has been modified to join 2 strings with a space in between them
 // so that i can split them easily later on.
-
-#include <stdio.h>
 
 char	*ft_strjoin(char *s1, char *s2)
 {

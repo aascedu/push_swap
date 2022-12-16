@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:57:16 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/15 14:22:43 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 10:29:18 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,20 @@ t_stack	*args_to_nodes(char **argv)
 
 	first = NULL;
 	array = args_to_array(argv);
+	if (!array)
+		return ((void)ft_printf("Error\n"), NULL);
+	if (check_dups(array))
+		return (ft_freeall(array), (void)ft_printf("Error\n"), NULL);
 	i = 0;
 	while (array[i])
 	{
 		if (ft_atoi(array[i]) > INT_MAX || ft_atoi(array[i]) < INT_MIN)
-			return (ft_freeall(array), free_lst(first), (void)ft_printf("Error\n"), NULL);
+		{
+			ft_printf("Error\n");
+			return (ft_freeall(array), free_lst(first), NULL);
+		}
 		lstadd_back(&first, create_node(ft_atoi(array[i]), first));
 		i++;
 	}
-	return (first);
+	return (ft_freeall(array), first);
 }

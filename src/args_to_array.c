@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:37:19 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/14 15:10:14 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 14:11:03 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ static int	check_line(char *str)
 {
 	int	i;
 
-	i = 0;
-	while (str[i] && str)
+	if (!str)
+		return (1);
+	i = -1;
+	while (str[++i])
 	{
 		if (ft_isdigit(str[i]) == 0 && str[i] != 32 && str[i] != '-')
 			return (1);
-		i++;
 	}
-	i = 0;
-	while (str[i] && str)
+	i = -1;
+	while (str[++i])
 	{
 		if (i == 0)
 		{
@@ -35,7 +36,6 @@ static int	check_line(char *str)
 			return (1);
 		else if (str[i] == '-' && !ft_isdigit(str[i + 1]))
 			return (1);
-		i++;
 	}
 	return (0);
 }
@@ -50,18 +50,18 @@ char	**args_to_array(char **argv)
 	if (!line)
 		return (NULL);
 	line[0] = '\0';
-	i = -1;
-	while (argv[++i])
+	i = 0;
+	while (argv[i])
 	{
 		line = ft_strjoin(line, argv[i]);
 		if (!line)
 			return (free(line), NULL);
+		i++;
 	}
 	if (check_line(line))
 		return (free(line), NULL);
 	array = ft_split(line, ' ');
 	if (!array)
-		return (free(line), ft_freeall(array), NULL);
-	free(line);
-	return (array);
+		return (free(line), NULL);
+	return (free(line), array);
 }

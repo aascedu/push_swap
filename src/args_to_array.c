@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   args_to_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:37:19 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/16 14:11:03 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/29 12:00:47 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	check_line(char *str)
+int	check_line(char *str)
 {
 	int	i;
 

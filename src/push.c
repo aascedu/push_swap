@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:50:38 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/16 11:24:55 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/16 17:28:51 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

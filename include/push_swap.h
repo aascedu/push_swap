@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:07 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/16 13:34:50 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2023/01/02 20:17:05 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include "../libft/include/libft.h"
 # include <stdlib.h>
 # include <limits.h>
-
-#include <stdio.h>
+# define CHUNK 10
+# define DOUBLE_CHUNK 20
+# define CHUNK_BIG 25
+# define DOUBLE_CHUNK_BIG 50
 
 typedef struct s_stack
 {
@@ -25,15 +27,56 @@ typedef struct s_stack
 	struct s_stack	*next;
 }		t_stack;
 
+// push_swap.c functions
+void	choose_sorting(t_stack **a, t_stack **b);
+
+// args_to_array.c functions
 char	**args_to_array(char **argv);
+int	check_line(char *str);
 
-int		check_dups(char **array);
-
+// args_to_nodes.c functions
 t_stack	*args_to_nodes(char **argv);
+int		rank_num(char **array, int i);
+int		len_array(char **array);
+int		check_limits(char **array);
 t_stack	*create_node(int content, t_stack *first);
+
+// check_dups.c functions
+int		check_dups(char **array);
+int	check_array(int *array, int len);
+
+// is_lst_sorted.c functions
+int		is_lst_sorted(t_stack *a, t_stack *b);
+
+// lst_utils.c functions
+void	free_lst(t_stack *head);
+void	lstadd_back(t_stack **lst, t_stack *new);
+t_stack	*lstfind(t_stack *lst, t_stack *stop);
+int		lstsize(t_stack *lst);
+t_stack	*lstlast(t_stack *lst);
+
+// push.c functions
+void	push_a(t_stack **head_a, t_stack **head_b);
+void	push_b(t_stack **head_a, t_stack **head_b);
+void	del_first(t_stack **head);
+
+// to do : rotate.c, sort_lit.c, swap.c n finish rev_rotate.c
+
+
+
+
+
+
+// rev_rotate.c functions
+void	rev_rotate(t_stack **head);
+void	rev_rotate_a(t_stack **head);
+int		lstsize(t_stack *lst);
+
+void	free_lst(t_stack *head);
 t_stack	*lstlast(t_stack *lst);
 t_stack	*lstfind(t_stack *lst, t_stack *stop);
-void	free_lst(t_stack *head);
+void	lstadd_back(t_stack **lst, t_stack *new);
+void	sort_list(t_stack **a, t_stack **b, int chunk, int double_chunk);
 
 void	swap_a(t_stack **head);
 void	swap_b(t_stack **head);

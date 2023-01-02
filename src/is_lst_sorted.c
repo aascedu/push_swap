@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_lst.c                                         :+:      :+:    :+:   */
+/*   is_lst_sorted.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 09:14:43 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/16 10:37:30 by aascedu          ###   ########lyon.fr   */
+/*   Created: 2022/12/23 11:47:08 by arthurasced       #+#    #+#             */
+/*   Updated: 2022/12/27 11:40:07 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_lst(t_stack *head)
+int	is_lst_sorted(t_stack *a, t_stack *b)
 {
-	t_stack	*temp;
-	t_stack	*next;
+	int	number;
 
-	temp = head;
-	while (temp)
+	if (b != NULL)
+		return (0);
+	if (a->next == NULL && b == NULL)
+		return (1);
+	number = a->number;
+	a = a->next;
+	while (a)
 	{
-		next = temp->next;
-		free(temp);
-		temp = next;
+		if (number > a->number)
+			return (0);
+		number = a->number;
+		a = a->next;
 	}
-	head = NULL;
+	return (1);
 }

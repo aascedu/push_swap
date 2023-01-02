@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 12:57:46 by aascedu           #+#    #+#              #
-#    Updated: 2022/12/16 12:21:46 by aascedu          ###   ########lyon.fr    #
+#    Updated: 2022/12/29 11:59:33 by arthurasced      ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ LIBFT = ./libft/libft.a
 HEADER = push_swap.h
 
 SRCS_DIR = ./src/
-SRCS = push_swap.c args_to_nodes.c args_to_array.c check_dups.c free_lst.c \
-		swap.c rotate.c rev_rotate.c push.c \
+SRCS = push_swap.c args_to_nodes.c args_to_array.c check_dups.c lst_utils.c \
+		swap.c rotate.c rev_rotate.c push.c sort_list.c is_lst_sorted.c \
 
 SRCS_FILES = $(addprefix $(SRCS_DIR), $(SRCS))
 
@@ -28,7 +28,7 @@ OBJS = $(SRCS:.c=.o)
 OBJS_FILES = $(addprefix $(OBJS_DIR), $(OBJS))
 
 CC = cc
-CFLAGS =  -I./include -Wall -Werror -Wextra -g#-fsanitize=address -g3
+CFLAGS =  -I./include -Wall -Werror -Wextra -fsanitize=address -g3
 RM = rm -rf
 
 all : $(OBJS_DIR) lib

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:22:40 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/16 09:23:44 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/27 11:40:33 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
-
-#include <stdio.h>
 
 //libft project lines
 typedef struct s_list

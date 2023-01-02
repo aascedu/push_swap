@@ -3,56 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:51:00 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/16 13:53:44 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2022/12/29 11:58:18 by arthurasced      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	choose_sorting(t_stack **a, t_stack **b)
+{
+	if (lstsize(*a) == 2)
+		swap_a(a);
+	if (lstsize(*a) == 3)
+		sort_three(a, b);
+	if (lstsize(*a) >= 5)
+		sort_small_list(a, b);
+	if (lstsize(*a) <= 100)
+		sort_list(a, b, CHUNK, DOUBLE_CHUNK);
+	else
+		sort_list(a, b, CHUNK_BIG, DOUBLE_CHUNK_BIG);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*head_ref;
-	t_stack	*head_ref1;
 
 	(void)argc;
 	a = args_to_nodes(argv + 1);
 	b = NULL;
-	head_ref = a;
 	if (!a)
 		return (1);
-	while (a)
-	{
-		printf("stack a=%d\n", a->number);
-		a = a->next;
-	}
-	a = head_ref;
-	push_b(&a, &b);
-	push_b(&a, &b);
-	push_b(&a, &b);
-	rotate_rr(&a, &b);
-	swap_ss(&a, &b);
-	head_ref = a;
-	head_ref1 = b;
-	printf("\nStack A:\n");
-	while (a)
-	{
-		printf("%d\n", a->number);
-		a = a->next;
-	}
-	printf("\nStack B:\n");
-	while (b)
-	{
-		printf("B = %d\n", b->number);
-		b = b->next;
-	}
-	a = head_ref;
-	b = head_ref1;
-	free_lst(a);
-	free_lst(b);
-	return (0);
+	if (is_lst_sorted(a, b))
+		return (free_lst(a), free_lst(b), 0);
+	choose_sorting(&a, &b);
+	return (free_lst(a), free_lst(b), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 08:46:51 by aascedu           #+#    #+#             */
-/*   Updated: 2023/01/03 12:46:40 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2023/01/03 13:14:15 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	sort_small_list(t_stack **a, t_stack **b)
 {
 	while (lstsize(*a) > 3)
 	{
-		if (smallest_pos(*a) < 3)
+		if (smallest_pos(*a) < (lstsize(*a) / 2))
 		{
 			while (find_smallest(*a) != (*a)->number)
 				rotate_a(a);

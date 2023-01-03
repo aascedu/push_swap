@@ -6,7 +6,7 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:28:07 by aascedu           #+#    #+#             */
-/*   Updated: 2023/01/03 10:47:39 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2023/01/03 13:00:08 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	sort_list(t_stack **a, t_stack **b, int chunk, int double_chunk);
 
 // sort_small_list.c functions
 int		find_smallest(t_stack *head);
+int		smallest_pos(t_stack *head);
 void	sort_small_list(t_stack **a, t_stack **b);
 void	sort_three(t_stack **a);
 

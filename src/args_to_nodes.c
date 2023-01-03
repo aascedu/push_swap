@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_to_nodes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arthurascedu <arthurascedu@student.42ly    +#+  +:+       +#+        */
+/*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:57:16 by arthurasced       #+#    #+#             */
-/*   Updated: 2022/12/29 10:24:12 by arthurasced      ###   ########lyon.fr   */
+/*   Updated: 2023/01/03 11:30:26 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ t_stack	*args_to_nodes(char **argv)
 	first = NULL;
 	array = args_to_array(argv);
 	if (!array)
-		return ((void)ft_printf("Error\n"), NULL);
+		return (ft_putstr_fd("Error\n", 2), NULL);
 	if (check_dups(array) || check_limits(array))
-		return (ft_freeall(array), (void)ft_printf("Error\n"), NULL);
+		return (ft_freeall(array), ft_putstr_fd("Error\n", 2), NULL);
 	i = -1;
 	while (array[++i])
 		lstadd_back(&first, create_node(rank_num(array, i), first));

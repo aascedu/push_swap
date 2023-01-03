@@ -6,12 +6,11 @@
 /*   By: aascedu <aascedu@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:34:12 by aascedu           #+#    #+#             */
-/*   Updated: 2022/12/16 13:26:19 by aascedu          ###   ########lyon.fr   */
+/*   Updated: 2023/01/03 08:36:22 by aascedu          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	rotate(t_stack **head)
 {
